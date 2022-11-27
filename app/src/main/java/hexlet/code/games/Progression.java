@@ -16,7 +16,7 @@ public class Progression implements Game {
     public Progression() {
         this.name = "Progression";
         this.rules = "What number is missing in the progression?";
-        endsOnFail = false;
+        endsOnFail = true;
     }
 
 
