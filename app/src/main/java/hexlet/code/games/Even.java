@@ -7,10 +7,9 @@ import hexlet.code.utils.RandomGenerator;
 public class Even implements Game {
     private static String lastAnswer;
     private static String rightAnswer;
-    private String name;
+    private final String name;
     private String question;
-    private int randomNumber;
-    private String rules;
+    private final String rules;
 
     public Even() {
         name = "Even";
@@ -23,7 +22,7 @@ public class Even implements Game {
     }
 
     public void startRound() {
-        randomNumber = RandomGenerator.getRandomNumber();
+        int randomNumber = RandomGenerator.getRandomNumber();
         question = String.valueOf(randomNumber);
         rightAnswer = isEven(randomNumber) ? "yes" : "no";
     }
