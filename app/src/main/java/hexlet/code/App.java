@@ -24,7 +24,6 @@ public class App {
             }
         }
 
-        ((GamePreprocessor) gameStorage.getGreeting()).greet();
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
         while (roundsCount > 0) {
