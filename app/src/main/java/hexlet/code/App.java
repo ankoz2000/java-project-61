@@ -37,7 +37,9 @@ public class App {
                 Cli.showErrorMessage("\n'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
-                return;
+                if (game.endsOnFail()) {
+                    return;
+                }
             }
         }
         Cli.showEndMessage(Greeting.congratulation());

@@ -46,4 +46,9 @@ public class Exit implements Game {
         return false;
     }
 
+    @Override
+    public boolean endsOnFail() {
+        return true;
+    }
+
 }

@@ -9,10 +9,12 @@ public class GCD implements Game {
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
+    private boolean endsOnFail;
 
     public GCD() {
         name = "GCD";
         rules = "Find the greatest common divisor of given numbers.";
+        endsOnFail = false;
     }
 
     @Override
@@ -65,5 +67,10 @@ public class GCD implements Game {
     @Override
     public boolean isRightAnswer() {
         return lastAnswer.equals(rightAnswer);
+    }
+
+    @Override
+    public boolean endsOnFail() {
+        return endsOnFail;
     }
 }

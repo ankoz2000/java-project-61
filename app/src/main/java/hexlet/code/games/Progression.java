@@ -11,10 +11,12 @@ public class Progression implements Game {
     private String whiteSpace = " ";
     private static String lastAnswer;
     private static String rightAnswer;
+    private boolean endsOnFail;
 
     public Progression() {
         this.name = "Progression";
         this.rules = "What number is missing in the progression?";
+        endsOnFail = false;
     }
 
 
@@ -78,5 +80,10 @@ public class Progression implements Game {
     @Override
     public boolean isRightAnswer() {
         return lastAnswer.equals(rightAnswer);
+    }
+
+    @Override
+    public boolean endsOnFail() {
+        return endsOnFail;
     }
 }

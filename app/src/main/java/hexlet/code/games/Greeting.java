@@ -74,4 +74,9 @@ public class Greeting implements GamePreprocessor {
     public boolean isRightAnswer() {
         return false;
     }
+
+    @Override
+    public boolean endsOnFail() {
+        return true;
+    }
 }
