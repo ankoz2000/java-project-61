@@ -25,7 +25,7 @@ public class Calculator implements Game {
         String operation = RandomGenerator.getRandomOperation();
         int firstOperand = RandomGenerator.getRandomNumber();
         int secondOperand = RandomGenerator.getRandomNumber();
-        question = firstOperand + operation + secondOperand;
+        question = firstOperand + " " + operation + " " + secondOperand;
         if (operation.equals("+")) {
             rightAnswer = String.valueOf(firstOperand + secondOperand);
         } else if (operation.equals("-")) {
