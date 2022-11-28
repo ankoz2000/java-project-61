@@ -27,7 +27,6 @@ public class App {
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
         int zero = 0;
-        int offset = 1;
         while (roundsCount > zero) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
@@ -38,7 +37,7 @@ public class App {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
-                if (game.endsOnFail() && roundsCount - offset == zero) {
+                if (game.endsOnFail()) {
                     break;
                 }
             }
