@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.interfaces.Game;
 
-public class Exit implements Game {
+public final class Exit implements Game {
 
     private String name = "Exit";
 

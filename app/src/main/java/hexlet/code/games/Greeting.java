@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 import hexlet.code.interfaces.GamePreprocessor;
 
-public class Greeting implements GamePreprocessor {
+public final class Greeting implements GamePreprocessor {
     private static String userName;
 
     private String name;

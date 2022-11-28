@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
-public class Progression implements Game {
+public final class Progression implements Game {
     private String name;
     private String rules;
     private String question;
@@ -27,11 +27,15 @@ public class Progression implements Game {
 
     @Override
     public void startRound() {
-        int step = RandomGenerator.getRandomNumberWithInterval(1, 10);
-        int firstNumber = RandomGenerator.getRandomNumberWithInterval(0, 10);
-        int numberCount = RandomGenerator.getRandomNumberWithInterval(5, 10);
-        numberCount = numberCount > 10 ? numberCount - numberCount % 10 : numberCount;
-        int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(1, numberCount);
+        int minPositionToHide = 0;
+        int minStep = 1, maxStep = 10;
+        int minNumber = 0, maxNumber = 10;
+        int minNumberCount = 5, maxNumberCount = 10;
+        int step = RandomGenerator.getRandomNumberWithInterval(minStep, maxStep);
+        int firstNumber = RandomGenerator.getRandomNumberWithInterval(minNumber, maxNumber);
+        int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);
+        numberCount = numberCount > maxNumberCount ? numberCount - numberCount % maxNumberCount : numberCount;
+        int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(minPositionToHide, numberCount);
 
         rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
 
@@ -49,7 +53,8 @@ public class Progression implements Game {
     }
 
     public int getProgressionNumber(int firstNumber, int step, int position) {
-        return firstNumber + step * (position - 1);
+        int offset = 1;
+        return firstNumber + step * (position - offset);
     }
 
     @Override

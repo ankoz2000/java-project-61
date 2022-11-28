@@ -5,8 +5,7 @@ import hexlet.code.interfaces.Game;
 import java.util.Scanner;
 
 public class Cli {
-    static int selectedGame;
-    static Scanner userInteraction;
+    private static Scanner userInteraction;
 
     public static void init() {
         userInteraction = new Scanner(System.in);
@@ -18,7 +17,8 @@ public class Cli {
     }
 
     public static void showAvailableChoices(Game[] games) {
-        int i = games.length - 1;
+        int arrayOffset = 1;
+        int i = games.length - arrayOffset;
         for (Game game : games) {
             System.out.println(i + " - " + game.getGameName());
             i--;
@@ -27,8 +27,7 @@ public class Cli {
 
     public static int selectGame() {
         System.out.print("Your choice: ");
-        selectedGame = userInteraction.nextInt();
-        return selectedGame;
+        return userInteraction.nextInt();
     }
 
     public static void showWelcomeLetter() {

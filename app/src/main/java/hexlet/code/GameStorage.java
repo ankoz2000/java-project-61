@@ -9,7 +9,9 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.Progression;
 
-public class GameStorage {
+public final class GameStorage {
+    int exitId = 0;
+    int greetingId = 1;
 
     private final Game[] games = {
         new Prime(),
@@ -22,23 +24,21 @@ public class GameStorage {
     };
 
     public Game getGameById(int id) {
-        return games[id == 0 ? 0 : games.length - 1 - id];
+        int offset = 1;
+        return games[id == exitId ? exitId : games.length - offset - id];
     }
 
     public Game getGreeting() {
-        return games[games.length - 2];
+        int offset = 2;
+        return games[games.length - offset];
     }
 
     public Integer getGreetingId() {
-        return 1;
-    }
-
-    public Game getExit() {
-        return games[games.length - 1];
+        return greetingId;
     }
 
     public Integer getExitId() {
-        return 0;
+        return exitId;
     }
 
     public Game[] getGames() {

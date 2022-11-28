@@ -4,7 +4,7 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
 
-public class Even implements Game {
+public final class Even implements Game {
     private static String lastAnswer;
     private static String rightAnswer;
     private final String name;
@@ -30,7 +30,8 @@ public class Even implements Game {
     }
 
     private static boolean isEven(int number) {
-        return number % 2 == 0;
+        int zero = 0, two = 2;
+        return number % two == zero;
     }
 
     @Override

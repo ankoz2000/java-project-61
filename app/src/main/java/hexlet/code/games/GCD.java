@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
-public class GCD implements Game {
+public final class GCD implements Game {
     private String name;
     private String rules;
     private String question;
@@ -31,12 +31,13 @@ public class GCD implements Game {
     }
 
     private int findGcd(int firstNumber, int secondNumber) {
-        for (int i = Math.min(firstNumber, secondNumber); i > 1; i--) {
-            if (firstNumber % i == 0 && secondNumber % i == 0) {
+        int minDivider = 1, zero = 0;
+        for (int i = Math.min(firstNumber, secondNumber); i > minDivider; i--) {
+            if (firstNumber % i == zero && secondNumber % i == zero) {
                 return i;
             }
         }
-        return 1;
+        return minDivider;
     }
 
     @Override

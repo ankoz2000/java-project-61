@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private String name;
     private String rules;
     private String question;
@@ -30,18 +30,19 @@ public class Prime implements Game {
     }
 
     public boolean isPrime(int number) {
-        if (number <= 1) {
+        int one = 1, three = 3, zero = 0, two = 2;
+        if (number <= one) {
             return false;
         }
-        if (number <= 3) {
+        if (number <= three) {
             return true;
         }
-        if (number % 2 == 0) {
+        if (number % two == zero) {
             return false;
         }
         int k = (int) Math.round(Math.sqrt(number));
-        for (int i = 3; i <= k; i += 2) {
-            if (number % k == 0) {
+        for (int i = three; i <= k; i += two) {
+            if (number % k == zero) {
                 return false;
             }
         }

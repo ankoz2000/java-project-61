@@ -2,7 +2,9 @@ package hexlet.code.utils;
 
 public class RandomGenerator {
     public static int getRandomNumber() {
-        return generateRandomNumber(0, 100);
+        int minNumber = 0;
+        int maxNumber = 100;
+        return generateRandomNumber(minNumber, maxNumber);
     }
 
     public static int getRandomNumberWithInterval(int low, int high) {
@@ -14,10 +16,13 @@ public class RandomGenerator {
     }
 
     public static String getRandomOperation() {
-        int number = generateRandomNumber(1, 3);
-        if (number == 1) {
+        int min = 1;
+        int plusIntEquivalent = 1, minusIntEquivalent = 2;
+        int max = 3;
+        int number = generateRandomNumber(min, max);
+        if (number == plusIntEquivalent) {
             return "+";
-        } else if (number == 2) {
+        } else if (number == minusIntEquivalent) {
             return "-";
         }
         return "*";
