@@ -29,11 +29,15 @@ public final class Progression implements Game {
     public void startRound() {
         int minStep = 1;
         int maxStep = 10;
+
         int minNumber = 1;
         int maxNumber = 10;
+
         int minNumberCount = 5;
         int maxNumberCount = 10;
+
         int minPositionToHide = 1;
+
         int step = RandomGenerator.getRandomNumberWithInterval(minStep, maxStep);
         int firstNumber = RandomGenerator.getRandomNumberWithInterval(minNumber, maxNumber);
         int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);
