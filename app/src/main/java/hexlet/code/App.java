@@ -33,7 +33,6 @@ public class App {
             game.setAnswerFromUser(Cli.getAnswer());
             if (game.isRightAnswer()) {
                 Cli.showSuccessMessage("Correct!");
-                roundsCount--;
             } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
@@ -43,6 +42,7 @@ public class App {
                     return;
                 }
             }
+            roundsCount--;
         }
         Cli.showEndMessage(Greeting.congratulation());
     }

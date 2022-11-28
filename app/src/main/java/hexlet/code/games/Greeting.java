@@ -32,7 +32,7 @@ public final class Greeting implements GamePreprocessor {
     }
 
     public static String congratulation() {
-        return "\nCongratulations, " + userName + "!";
+        return "Congratulations, " + userName + "!";
     }
 
     @Override
