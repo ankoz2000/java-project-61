@@ -14,7 +14,7 @@ public final class Prime implements Game {
     public Prime() {
         this.name = "Prime";
         this.rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        endsOnFail = true;
+        endsOnFail = false;
     }
 
     @Override
