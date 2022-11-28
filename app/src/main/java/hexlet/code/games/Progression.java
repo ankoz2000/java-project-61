@@ -36,7 +36,7 @@ public class Progression implements Game {
         rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
 
         StringBuilder questionBuilder = new StringBuilder("");
-        for (int i = 1; i < numberCount; i++) {
+        for (int i = 1; i <= numberCount; i++) {
             if (i == hiddenNumberPosition) {
                 questionBuilder.append(replacement);
             } else {
