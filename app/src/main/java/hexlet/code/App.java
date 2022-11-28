@@ -43,6 +43,5 @@ public class App {
             }
         }
         Cli.showEndMessage(Greeting.congratulation());
-        return;
     }
 }
