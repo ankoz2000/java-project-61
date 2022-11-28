@@ -14,7 +14,7 @@ public class GCD implements Game {
     public GCD() {
         name = "GCD";
         rules = "Find the greatest common divisor of given numbers.";
-        endsOnFail = true;
+        endsOnFail = false;
     }
 
     @Override
