@@ -28,14 +28,14 @@ public class Progression implements Game {
     @Override
     public void startRound() {
         int step = RandomGenerator.getRandomNumberWithInterval(1, 10);
-        int firstNumber = Math.abs(RandomGenerator.getRandomNumberWithInterval(0, 10));
+        int firstNumber = RandomGenerator.getRandomNumberWithInterval(0, 10);
         int numberCount = RandomGenerator.getRandomNumberWithInterval(5, 10);
         numberCount = numberCount > 10 ? numberCount - numberCount % 10 : numberCount;
         int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(0, numberCount);
 
         rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
 
-        StringBuilder questionBuilder = new StringBuilder("");
+        StringBuilder questionBuilder = new StringBuilder();
         for (int i = 1; i <= numberCount; i++) {
             if (i == hiddenNumberPosition) {
                 questionBuilder.append(replacement);

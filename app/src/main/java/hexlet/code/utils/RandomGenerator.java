@@ -15,7 +15,7 @@ public class RandomGenerator {
     }
 
     private static int generateRandomNumber(int low, int high) {
-        return random.nextInt((high + low) + 1) + low;
+        return (int) ((Math.random() * (high - low)) + low);
     }
 
     public static String getRandomOperation() {
