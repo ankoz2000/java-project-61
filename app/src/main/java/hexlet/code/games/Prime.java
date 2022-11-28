@@ -34,14 +34,11 @@ public final class Prime implements Game {
         int three = 3;
         int zero = 0;
         int two = 2;
-        if (number <= one) {
+        if (number <= one || number % two == zero) {
             return false;
         }
-        if (number <= three) {
+        if (number == three) {
             return true;
-        }
-        if (number % two == zero) {
-            return false;
         }
         int k = (int) Math.round(Math.sqrt(number));
         for (int i = three; i <= k; i += two) {
