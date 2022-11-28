@@ -61,7 +61,6 @@ public class Cli {
 
     public static void showEndMessage(String endMessage) {
         System.out.println(endMessage);
-        close();
     }
 
     public static void closeInteraction() {
