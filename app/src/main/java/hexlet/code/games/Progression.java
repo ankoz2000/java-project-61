@@ -27,10 +27,10 @@ public final class Progression implements Game {
 
     @Override
     public void startRound() {
-        int minPositionToHide = 0;
+        int minPositionToHide = 1;
         int minStep = 1;
         int maxStep = 10;
-        int minNumber = 0;
+        int minNumber = 1;
         int maxNumber = 10;
         int minNumberCount = 5;
         int maxNumberCount = 10;
