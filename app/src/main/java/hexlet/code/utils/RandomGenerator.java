@@ -1,11 +1,9 @@
 package hexlet.code.utils;
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class RandomGenerator {
-    private static Random random = new Random();
-
-
     public static int getRandomNumber() {
         return generateRandomNumber(0, 100);
     }
