@@ -40,7 +40,7 @@ public final class Prime implements Game {
         if (number == three) {
             return true;
         }
-        int k = (int) Math.round(Math.sqrt(number));
+        int k = (int) Math.round(Math.sqrt(number) + 1);
         for (int i = three; i <= k; i += two) {
             if (number % k == zero) {
                 return false;
