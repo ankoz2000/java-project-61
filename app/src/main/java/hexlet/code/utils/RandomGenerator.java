@@ -1,8 +1,5 @@
 package hexlet.code.utils;
 
-import java.util.Calendar;
-import java.util.Random;
-
 public class RandomGenerator {
     public static int getRandomNumber() {
         return generateRandomNumber(0, 100);
