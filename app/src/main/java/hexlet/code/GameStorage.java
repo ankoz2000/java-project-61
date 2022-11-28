@@ -10,8 +10,7 @@ import hexlet.code.games.Calculator;
 import hexlet.code.games.Progression;
 
 public final class GameStorage {
-    int exitId = 0;
-    int greetingId = 1;
+    private final int exitId = 0;
 
     private final Game[] games = {
         new Prime(),
@@ -34,7 +33,7 @@ public final class GameStorage {
     }
 
     public Integer getGreetingId() {
-        return greetingId;
+        return 1;
     }
 
     public Integer getExitId() {
