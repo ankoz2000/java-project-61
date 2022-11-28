@@ -31,7 +31,8 @@ public final class GCD implements Game {
     }
 
     private int findGcd(int firstNumber, int secondNumber) {
-        int minDivider = 1, zero = 0;
+        int minDivider = 1;
+        int zero = 0;
         for (int i = Math.min(firstNumber, secondNumber); i > minDivider; i--) {
             if (firstNumber % i == zero && secondNumber % i == zero) {
                 return i;

@@ -17,7 +17,8 @@ public class RandomGenerator {
 
     public static String getRandomOperation() {
         int min = 1;
-        int plusIntEquivalent = 1, minusIntEquivalent = 2;
+        int plusIntEquivalent = 1;
+        int minusIntEquivalent = 2;
         int max = 3;
         int number = generateRandomNumber(min, max);
         if (number == plusIntEquivalent) {

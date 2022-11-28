@@ -28,9 +28,12 @@ public final class Progression implements Game {
     @Override
     public void startRound() {
         int minPositionToHide = 0;
-        int minStep = 1, maxStep = 10;
-        int minNumber = 0, maxNumber = 10;
-        int minNumberCount = 5, maxNumberCount = 10;
+        int minStep = 1;
+        int maxStep = 10;
+        int minNumber = 0;
+        int maxNumber = 10;
+        int minNumberCount = 5;
+        int maxNumberCount = 10;
         int step = RandomGenerator.getRandomNumberWithInterval(minStep, maxStep);
         int firstNumber = RandomGenerator.getRandomNumberWithInterval(minNumber, maxNumber);
         int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);

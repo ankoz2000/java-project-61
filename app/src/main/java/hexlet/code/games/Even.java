@@ -30,7 +30,8 @@ public final class Even implements Game {
     }
 
     private static boolean isEven(int number) {
-        int zero = 0, two = 2;
+        int zero = 0;
+        int two = 2;
         return number % two == zero;
     }
 
