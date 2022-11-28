@@ -65,6 +65,10 @@ public class Cli {
         close();
     }
 
+    public static void closeInteraction() {
+        close();
+    }
+
     public static void showErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }
