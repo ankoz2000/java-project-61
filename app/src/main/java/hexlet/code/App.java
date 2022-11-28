@@ -34,7 +34,7 @@ public class App {
                 Cli.showSuccessMessage("Correct!");
                 roundsCount--;
             } else {
-                Cli.showErrorMessage("\n'" + game.getLastAnswer() + "'"
+                Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
                 if (game.endsOnFail()) {
@@ -43,5 +43,6 @@ public class App {
             }
         }
         Cli.showEndMessage(Greeting.congratulation());
+        return;
     }
 }

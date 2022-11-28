@@ -32,7 +32,7 @@ public class Cli {
     }
 
     public static void showWelcomeLetter() {
-        System.out.println("\nWelcome to the Brain Games!");
+        System.out.println("Welcome to the Brain Games!");
     }
 
     public static void close() {
