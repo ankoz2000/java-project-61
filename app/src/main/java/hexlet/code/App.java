@@ -26,7 +26,8 @@ public class App {
 
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
-        while (roundsCount > 0) {
+        int zero = 0;
+        while (roundsCount > zero) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
             game.setAnswerFromUser(Cli.getAnswer());
