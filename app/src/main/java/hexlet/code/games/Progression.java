@@ -7,11 +7,11 @@ public final class Progression implements Game {
     private String name;
     private String rules;
     private String question;
-    private String replacement = "..";
+    private boolean endsOnFail;
     private String whiteSpace = " ";
     private static String lastAnswer;
     private static String rightAnswer;
-    private boolean endsOnFail;
+    private String replacement = "..";
 
     public Progression() {
         this.name = "Progression";
@@ -27,13 +27,13 @@ public final class Progression implements Game {
 
     @Override
     public void startRound() {
-        int minPositionToHide = 1;
         int minStep = 1;
         int maxStep = 10;
         int minNumber = 1;
         int maxNumber = 10;
         int minNumberCount = 5;
         int maxNumberCount = 10;
+        int minPositionToHide = 1;
         int step = RandomGenerator.getRandomNumberWithInterval(minStep, maxStep);
         int firstNumber = RandomGenerator.getRandomNumberWithInterval(minNumber, maxNumber);
         int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);
