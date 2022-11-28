@@ -37,10 +37,10 @@ public class App {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
-                if (game.endsOnFail()) {
-                    Cli.closeInteraction();
-                    return;
-                }
+//                if (game.endsOnFail()) {
+//                    Cli.closeInteraction();
+//                    return;
+//                }
             }
             roundsCount--;
         }
