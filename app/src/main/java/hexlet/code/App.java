@@ -38,7 +38,6 @@ public class App {
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
                 if (game.endsOnFail()) {
-                    Cli.showEndMessage(Greeting.congratulation());
                     return;
                 }
             }
