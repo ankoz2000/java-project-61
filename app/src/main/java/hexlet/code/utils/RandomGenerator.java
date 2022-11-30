@@ -3,8 +3,8 @@ package hexlet.code.utils;
 public class RandomGenerator {
     public static int getRandomNumber() {
         int minNumber = 0;
-        int maxNumberOfInterval = 100;
-        return generateRandomNumber(minNumber, maxNumberOfInterval);
+        int highBorderOfInterval = 100;
+        return generateRandomNumber(minNumber, highBorderOfInterval);
     }
 
     public static int getRandomNumberWithInterval(int low, int high) {
@@ -17,8 +17,8 @@ public class RandomGenerator {
 
     public static String getRandomOperation() {
         int min = 1;
-        int maxNumberOfInterval = 3;
-        int number = generateRandomNumber(min, maxNumberOfInterval);
+        int highBorderOfInterval = 3;
+        int number = generateRandomNumber(min, highBorderOfInterval);
 
         int plusIntEquivalent = 1;
         int minusIntEquivalent = 2;

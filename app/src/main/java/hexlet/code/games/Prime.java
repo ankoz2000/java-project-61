@@ -31,12 +31,12 @@ public final class Prime implements Game {
 
     public boolean isPrime(int number) {
         int one = 1;
-        int three = 3;
         int zero = 0;
         int two = 2;
         if (number <= one || number % two == zero) {
             return false;
         }
+        int three = 3;
         if (number == three) {
             return true;
         }
