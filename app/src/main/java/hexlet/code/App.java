@@ -25,7 +25,7 @@ public class App {
 
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
-        Engine engine = new Engine();
+        Engine engine = new Engine(3);
         engine.start(game);
         Cli.showEndMessage(Greeting.congratulation());
         Cli.closeInteraction();
