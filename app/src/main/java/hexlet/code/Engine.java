@@ -20,7 +20,7 @@ public class Engine {
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
                 if (game.endsOnFail()) {
-                    return;
+                    break;
                 }
             } else {
                 Cli.showSuccessMessage("Correct!");
