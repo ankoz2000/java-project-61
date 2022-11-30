@@ -6,7 +6,6 @@ import hexlet.code.interfaces.GamePreprocessor;
 
 public class App {
     public static void main(String[] args) {
-        int roundsCount = 3;
         GameStorage gameStorage = new GameStorage();
 
         Cli.showInitMessage();
