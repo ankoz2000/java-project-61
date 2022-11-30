@@ -10,7 +10,8 @@ public final class Engine {
         this.roundsCount = count;
     }
 
-    public void start(Game game) {
+    public boolean start(Game game) {
+        boolean isSuccess = true;
         for (int i = 0; i < getRoundsCount(); i++) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
@@ -22,10 +23,12 @@ public final class Engine {
                 if (game.endsOnFail()) {
                     break;
                 }
+                isSuccess = false;
             } else {
                 Cli.showSuccessMessage("Correct!");
             }
         }
+        return isSuccess;
     }
 
     public Integer getRoundsCount() {
