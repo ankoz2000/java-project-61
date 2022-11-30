@@ -22,8 +22,9 @@ public class Engine {
                 if (game.endsOnFail()) {
                     return;
                 }
+            } else {
+                Cli.showSuccessMessage("Correct!");
             }
-            Cli.showSuccessMessage("Correct!");
         }
     }
 }
