@@ -4,7 +4,6 @@ public class RandomGenerator {
     public static int getRandomNumber() {
         int minNumber = 0;
         int maxNumberOfInterval = 100;
-
         return generateRandomNumber(minNumber, maxNumberOfInterval);
     }
 
@@ -19,11 +18,10 @@ public class RandomGenerator {
     public static String getRandomOperation() {
         int min = 1;
         int maxNumberOfInterval = 3;
+        int number = generateRandomNumber(min, maxNumberOfInterval);
 
         int plusIntEquivalent = 1;
         int minusIntEquivalent = 2;
-
-        int number = generateRandomNumber(min, maxNumberOfInterval);
         if (number == plusIntEquivalent) {
             return "+";
         } else if (number == minusIntEquivalent) {

@@ -3,14 +3,10 @@ package hexlet.code;
 import hexlet.code.games.Greeting;
 import hexlet.code.interfaces.Game;
 
-public class Engine {
-    private int roundsCount;
-
-    public Engine() {
-        roundsCount = 3;
-    }
+public final class Engine {
 
     public void start(Game game) {
+        int roundsCount = 3;
         for (int i = 0; i < roundsCount; i++) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
