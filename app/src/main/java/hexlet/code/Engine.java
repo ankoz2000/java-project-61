@@ -4,15 +4,14 @@ import hexlet.code.games.Greeting;
 import hexlet.code.interfaces.Game;
 
 public final class Engine {
-    private Integer roundsCount;
+    private final Integer roundsCount;
 
-    public Engine(Integer roundsCount) {
-        this.roundsCount = roundsCount;
+    public Engine(Integer count) {
+        this.roundsCount = count;
     }
 
     public void start(Game game) {
-        int roundsCount = getRoundsCount();
-        for (int i = 0; i < roundsCount; i++) {
+        for (int i = 0; i < getRoundsCount(); i++) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
             game.setAnswerFromUser(Cli.getAnswer());
