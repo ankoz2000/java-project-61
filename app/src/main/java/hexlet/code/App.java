@@ -26,23 +26,8 @@ public class App {
 
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
-        int zero = 0;
-        while (roundsCount > zero) {
-            game.startRound();
-            Cli.askQuestion(game.getQuestion());
-            game.setAnswerFromUser(Cli.getAnswer());
-            if (game.isRightAnswer()) {
-                Cli.showSuccessMessage("Correct!");
-            } else {
-                Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
-                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
-                        + "Let's try again, " + Greeting.getUsername() + "!");
-                if (game.endsOnFail()) {
-                    return;
-                }
-            }
-            roundsCount--;
-        }
+        Engine engine = new Engine();
+        engine.start(game);
         Cli.showEndMessage(Greeting.congratulation());
         Cli.closeInteraction();
     }
