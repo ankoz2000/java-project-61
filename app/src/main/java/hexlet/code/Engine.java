@@ -20,10 +20,10 @@ public final class Engine {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
+                isSuccess = false;
                 if (game.endsOnFail()) {
                     break;
                 }
-                isSuccess = false;
             } else {
                 Cli.showSuccessMessage("Correct!");
             }
