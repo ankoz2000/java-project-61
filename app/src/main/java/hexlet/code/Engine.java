@@ -23,6 +23,9 @@ public final class Engine {
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
                 isSuccess = false;
+                if (game.endsOnFail()) {
+                    return isSuccess;
+                }
             }
         }
         return isSuccess;
