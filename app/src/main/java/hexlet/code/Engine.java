@@ -16,16 +16,16 @@ public final class Engine {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
             game.setAnswerFromUser(Cli.getAnswer());
-            if (!game.isRightAnswer()) {
+            if (game.isRightAnswer()) {
+                Cli.showSuccessMessage("Correct!");
+            } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
                 isSuccess = false;
                 if (game.endsOnFail()) {
-                    break;
+                    return false;
                 }
-            } else {
-                Cli.showSuccessMessage("Correct!");
             }
         }
         return isSuccess;
