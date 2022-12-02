@@ -6,6 +6,7 @@ import hexlet.code.interfaces.GamePreprocessor;
 
 public class App {
     public static void main(String[] args) {
+        int rounds = 3;
         GameStorage gameStorage = new GameStorage();
 
         Cli.showInitMessage();
@@ -25,7 +26,7 @@ public class App {
 
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
-        Engine engine = new Engine(3);
+        Engine engine = new Engine(rounds);
         engine.start(game);
         Cli.showEndMessage(Greeting.congratulation());
         Cli.closeInteraction();
