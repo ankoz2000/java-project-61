@@ -5,9 +5,11 @@ import hexlet.code.interfaces.Game;
 
 public final class Engine {
     private final Integer roundsCount;
+    private int points;
 
     public Engine(Integer count) {
         this.roundsCount = count;
+        this.points = 0;
     }
 
     public void start(Game game) {
@@ -17,6 +19,7 @@ public final class Engine {
             game.setAnswerFromUser(Cli.getAnswer());
             if (game.isRightAnswer()) {
                 Cli.showSuccessMessage("Correct!");
+                points += 1;
             } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n"
@@ -28,5 +31,9 @@ public final class Engine {
 
     public Integer getRoundsCount() {
         return roundsCount;
+    }
+
+    public boolean isSuccess() {
+        return points == roundsCount;
     }
 }
