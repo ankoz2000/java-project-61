@@ -21,7 +21,6 @@ public final class Engine {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n"
                         + "Let's try again, " + Greeting.getUsername() + "!");
-                return;
             }
         }
     }
