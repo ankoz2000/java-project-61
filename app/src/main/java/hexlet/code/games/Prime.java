@@ -31,16 +31,18 @@ public final class Prime implements Game {
 
     public boolean isPrime(int number) {
         int one = 1;
-        int zero = 0;
         int two = 2;
+        int zero = 0;
+        int three = 3;
+        int startValue = 3;
         if (number <= one || number % two == zero) {
             return false;
         }
-        if (number == 3) {
+        if (number == three) {
             return true;
         }
         int k = (int) Math.round(Math.sqrt(number) + one);
-        for (int i = 3; i <= k; i += two) {
+        for (int i = startValue; i <= k; i += two) {
             if (number % k == zero) {
                 return false;
             }
