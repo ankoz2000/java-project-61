@@ -11,16 +11,16 @@ public final class Progression implements Game {
     private static String lastAnswer;
     private static String rightAnswer;
 
-    private static final int minStepValue = 1;
-    private static final int maxStepValue = 10;
+    private static final int MIN_STEP_VALUE = 1;
+    private static final int MAX_STEP_VALUE = 10;
 
-    private static final int minFirstNumber = 1;
-    private static final int maxFirstNumber = 10;
+    private static final int MIN_FIRST_NUMBER = 1;
+    private static final int MAX_FIRST_NUMBER = 10;
 
-    private static final int minNumberCount = 5;
-    private static final int maxNumberCount = 10;
+    private static final int MIN_NUMBER_COUNT = 5;
+    private static final int MAX_NUMBER_COUNT = 10;
 
-    private static final int minPositionToHide = 1;
+    private static final int MIN_POSITION_TO_HIDE = 1;
 
     public Progression() {
         this.name = "Progression";
@@ -36,14 +36,14 @@ public final class Progression implements Game {
 
     @Override
     public void startRound() {
-        int step = RandomGenerator.getRandomNumberWithInterval(minStepValue, maxStepValue);
+        int step = RandomGenerator.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
 
-        int firstNumber = RandomGenerator.getRandomNumberWithInterval(minFirstNumber, maxFirstNumber);
+        int firstNumber = RandomGenerator.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
 
-        int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);
-        numberCount = numberCount > maxNumberCount ? numberCount - numberCount % maxNumberCount : numberCount;
+        int numberCount = RandomGenerator.getRandomNumberWithInterval(MIN_NUMBER_COUNT, MAX_NUMBER_COUNT);
+        numberCount = numberCount > MAX_NUMBER_COUNT ? numberCount - numberCount % MAX_NUMBER_COUNT : numberCount;
 
-        int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(minPositionToHide, numberCount);
+        int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(MIN_POSITION_TO_HIDE, numberCount);
 
         rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
 

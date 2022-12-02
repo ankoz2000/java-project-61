@@ -11,7 +11,7 @@ public final class Prime implements Game {
     private static String rightAnswer;
     private final boolean endsOnFail;
 
-    private static final int firstPrimeNumber = 3;
+    private static final int FIRST_PRIME_NUMBER = 3;
 
     public Prime() {
         this.name = "Prime";
@@ -38,11 +38,11 @@ public final class Prime implements Game {
         if (number <= one || number % two == zero) {
             return false;
         }
-        if (number == firstPrimeNumber) {
+        if (number == FIRST_PRIME_NUMBER) {
             return true;
         }
         int k = (int) Math.round(Math.sqrt(number) + one);
-        for (int i = 3; i <= k; i += two) {
+        for (int i = FIRST_PRIME_NUMBER; i <= k; i += two) {
             if (number % k == zero) {
                 return false;
             }
