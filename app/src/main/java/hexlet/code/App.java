@@ -29,7 +29,9 @@ public class App {
         Cli.showPreInteractionMessageToUser(game.getRules());
         Engine engine = new Engine(ROUNDS);
         engine.start(game);
-        Cli.showEndMessage(Greeting.congratulation());
+        if (engine.getIsWin()) {
+            Cli.showEndMessage(Greeting.congratulation());
+        }
         Cli.closeInteraction();
     }
 }
