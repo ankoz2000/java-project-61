@@ -15,13 +15,11 @@ public class App {
         int selectedGameId = Cli.selectGame();
 
         if (gameStorage.getExitId().equals(selectedGameId)) {
-            Cli.closeInteraction();
             return;
         } else {
             Cli.showWelcomeLetter();
             ((GamePreprocessor) gameStorage.getGreeting()).greet();
             if (gameStorage.getGreetingId().equals(selectedGameId)) {
-                Cli.closeInteraction();
                 return;
             }
         }
