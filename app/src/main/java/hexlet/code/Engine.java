@@ -23,7 +23,6 @@ public final class Engine {
             } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n");
-                return;
             }
         }
     }
