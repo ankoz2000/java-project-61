@@ -26,10 +26,8 @@ public class App {
         Game game = gameStorage.getGameById(selectedGameId);
         Cli.showPreInteractionMessageToUser(game.getRules());
         Engine engine = new Engine(3);
-        boolean isSuccess = engine.start(game);
-        if (isSuccess) {
-            Cli.showEndMessage(Greeting.congratulation());
-        }
+        engine.start(game);
+        Cli.showEndMessage(Greeting.congratulation());
         Cli.closeInteraction();
     }
 }
