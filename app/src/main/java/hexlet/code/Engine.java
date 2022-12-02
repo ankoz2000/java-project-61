@@ -11,7 +11,6 @@ public final class Engine {
     }
 
     public void start(Game game) {
-        boolean isSuccess = true;
         for (int i = 0; i < getRoundsCount(); i++) {
             game.startRound();
             Cli.askQuestion(game.getQuestion());
@@ -20,9 +19,7 @@ public final class Engine {
                 Cli.showSuccessMessage("Correct!");
             } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
-                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n"
-                        + "Let's try again, " + Greeting.getUsername() + "!");
-                isSuccess = false;
+                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n");
                 if (game.endsOnFail()) {
                     return;
                 }
