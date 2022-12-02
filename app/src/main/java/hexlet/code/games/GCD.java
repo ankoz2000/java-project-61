@@ -4,12 +4,12 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
 public final class GCD implements Game {
-    private String name;
-    private String rules;
+    private final String name;
+    private final String rules;
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
-    private boolean endsOnFail;
+    private final boolean endsOnFail;
 
     public GCD() {
         name = "GCD";

@@ -10,7 +10,7 @@ public final class Even implements Game {
     private final String name;
     private String question;
     private final String rules;
-    private boolean endsOnFail;
+    private final boolean endsOnFail;
 
     public Even() {
         name = "Even";

@@ -4,14 +4,23 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
 public final class Progression implements Game {
-    private String name;
-    private String rules;
+    private final String name;
+    private final String rules;
     private String question;
-    private boolean endsOnFail;
-    private String whiteSpace = " ";
+    private final boolean endsOnFail;
     private static String lastAnswer;
     private static String rightAnswer;
-    private String replacement = "..";
+
+    private static final int minStepValue = 1;
+    private static final int maxStepValue = 10;
+
+    private static final int minFirstNumber = 1;
+    private static final int maxFirstNumber = 10;
+
+    private static final int minNumberCount = 5;
+    private static final int maxNumberCount = 10;
+
+    private static final int minPositionToHide = 1;
 
     public Progression() {
         this.name = "Progression";
@@ -27,18 +36,13 @@ public final class Progression implements Game {
 
     @Override
     public void startRound() {
-        int minStep = 1;
-        int step = RandomGenerator.getRandomNumberWithInterval(minStep, 10);
+        int step = RandomGenerator.getRandomNumberWithInterval(minStepValue, maxStepValue);
 
-        int minNumber = 1;
-        int firstNumber = RandomGenerator.getRandomNumberWithInterval(minNumber, 10);
+        int firstNumber = RandomGenerator.getRandomNumberWithInterval(minFirstNumber, maxFirstNumber);
 
-        int minNumberCount = 5;
-        int maxNumberCount = 10;
         int numberCount = RandomGenerator.getRandomNumberWithInterval(minNumberCount, maxNumberCount);
         numberCount = numberCount > maxNumberCount ? numberCount - numberCount % maxNumberCount : numberCount;
 
-        int minPositionToHide = 1;
         int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(minPositionToHide, numberCount);
 
         rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
@@ -46,10 +50,12 @@ public final class Progression implements Game {
         StringBuilder questionBuilder = new StringBuilder();
         for (int i = 1; i <= numberCount; i++) {
             if (i == hiddenNumberPosition) {
+                String replacement = "..";
                 questionBuilder.append(replacement);
             } else {
                 questionBuilder.append(getProgressionNumber(firstNumber, step, i));
             }
+            String whiteSpace = " ";
             questionBuilder.append(whiteSpace);
         }
 

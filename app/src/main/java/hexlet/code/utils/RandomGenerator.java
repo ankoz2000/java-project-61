@@ -1,10 +1,13 @@
 package hexlet.code.utils;
 
 public class RandomGenerator {
+    private static final int minNumberOfInterval = 0;
+    private static final int maxNumberOfInterval = 100;
+
+    private static final int operationsCount = 3;
+
     public static int getRandomNumber() {
-        int minNumber = 0;
-        int highBorderOfInterval = 100;
-        return generateRandomNumber(minNumber, highBorderOfInterval);
+        return generateRandomNumber(minNumberOfInterval, maxNumberOfInterval);
     }
 
     public static int getRandomNumberWithInterval(int low, int high) {
@@ -17,8 +20,7 @@ public class RandomGenerator {
 
     public static String getRandomOperation() {
         int min = 1;
-        int highBorderOfInterval = 3;
-        int number = generateRandomNumber(min, highBorderOfInterval);
+        int number = generateRandomNumber(min, operationsCount);
 
         int plusIntEquivalent = 1;
         int minusIntEquivalent = 2;

@@ -4,12 +4,14 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
 public final class Prime implements Game {
-    private String name;
-    private String rules;
+    private final String name;
+    private final String rules;
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
-    private boolean endsOnFail;
+    private final boolean endsOnFail;
+
+    private static final int firstPrimeNumber = 3;
 
     public Prime() {
         this.name = "Prime";
@@ -33,16 +35,14 @@ public final class Prime implements Game {
         int one = 1;
         int two = 2;
         int zero = 0;
-        int three = 3;
-        int startValue = 3;
         if (number <= one || number % two == zero) {
             return false;
         }
-        if (number == three) {
+        if (number == firstPrimeNumber) {
             return true;
         }
         int k = (int) Math.round(Math.sqrt(number) + one);
-        for (int i = startValue; i <= k; i += two) {
+        for (int i = 3; i <= k; i += two) {
             if (number % k == zero) {
                 return false;
             }
