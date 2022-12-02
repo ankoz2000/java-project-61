@@ -60,7 +60,7 @@ public class Cli {
     }
 
     public static void showEndMessage(String endMessage) {
-        System.out.println(endMessage);
+        System.out.print(endMessage);
     }
 
     public static void closeInteraction() {
