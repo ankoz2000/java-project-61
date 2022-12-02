@@ -22,8 +22,7 @@ public final class Engine {
                 points += 1;
             } else {
                 Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
-                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n"
-                        + "Let's try again, " + Greeting.getUsername() + "!");
+                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n");
                 return;
             }
         }
