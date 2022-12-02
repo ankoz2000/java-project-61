@@ -29,11 +29,7 @@ public class App {
         Cli.showPreInteractionMessageToUser(game.getRules());
         Engine engine = new Engine(ROUNDS);
         engine.start(game);
-        if (engine.isSuccess()) {
-            Cli.showEndMessage(Greeting.congratulation());
-        } else {
-            Cli.showEndMessage("Let's try again, " + Greeting.getUsername() + "!");
-        }
+        Cli.showEndMessage(Greeting.congratulation());
         Cli.closeInteraction();
     }
 }
