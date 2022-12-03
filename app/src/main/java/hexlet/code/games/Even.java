@@ -10,13 +10,11 @@ public final class Even implements Game {
     private final String name;
     private String question;
     private final String rules;
-    private final boolean endsOnFail;
 
     public Even() {
         name = "Even";
         rules = "Answer 'yes' if the number "
                 + "is even, otherwise answer 'no'.";
-        endsOnFail = true;
     }
 
     public String getRules() {
@@ -63,10 +61,5 @@ public final class Even implements Game {
     @Override
     public boolean isRightAnswer() {
         return lastAnswer.equals(rightAnswer);
-    }
-
-    @Override
-    public boolean endsOnFail() {
-        return endsOnFail;
     }
 }

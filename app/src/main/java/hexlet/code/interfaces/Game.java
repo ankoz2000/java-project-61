@@ -9,5 +9,4 @@ public interface Game {
     String getQuestion();
     void setAnswerFromUser(String answerFromUser);
     boolean isRightAnswer();
-    boolean endsOnFail();
 }

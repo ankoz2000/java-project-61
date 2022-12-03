@@ -9,12 +9,10 @@ public final class Calculator implements Game {
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
-    private final boolean endsOnFail;
 
     public Calculator() {
         name = "Calc";
         rules = "What is the result of the expression?";
-        endsOnFail = true;
     }
 
     @Override
@@ -65,10 +63,5 @@ public final class Calculator implements Game {
     @Override
     public boolean isRightAnswer() {
         return rightAnswer.equals(lastAnswer);
-    }
-
-    @Override
-    public boolean endsOnFail() {
-        return endsOnFail;
     }
 }

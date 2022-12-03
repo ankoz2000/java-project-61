@@ -13,12 +13,10 @@ public final class Prime implements Game {
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
-    private final boolean endsOnFail;
 
     public Prime() {
         this.name = "Prime";
         this.rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        endsOnFail = false;
     }
 
     @Override
@@ -80,10 +78,5 @@ public final class Prime implements Game {
     @Override
     public boolean isRightAnswer() {
         return lastAnswer.equals(rightAnswer);
-    }
-
-    @Override
-    public boolean endsOnFail() {
-        return endsOnFail;
     }
 }

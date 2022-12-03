@@ -7,7 +7,6 @@ public final class Progression implements Game {
     private final String name;
     private final String rules;
     private String question;
-    private final boolean endsOnFail;
     private static String lastAnswer;
     private static String rightAnswer;
 
@@ -25,7 +24,6 @@ public final class Progression implements Game {
     public Progression() {
         this.name = "Progression";
         this.rules = "What number is missing in the progression?";
-        endsOnFail = true;
     }
 
 
@@ -95,10 +93,5 @@ public final class Progression implements Game {
     @Override
     public boolean isRightAnswer() {
         return lastAnswer.equals(rightAnswer);
-    }
-
-    @Override
-    public boolean endsOnFail() {
-        return endsOnFail;
     }
 }

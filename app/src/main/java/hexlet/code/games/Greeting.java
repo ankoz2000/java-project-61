@@ -6,7 +6,7 @@ import hexlet.code.interfaces.GamePreprocessor;
 public final class Greeting implements GamePreprocessor {
     private static String userName;
 
-    private String name;
+    private final String name;
 
     public Greeting() {
         name = "Greet";
@@ -73,10 +73,5 @@ public final class Greeting implements GamePreprocessor {
     @Override
     public boolean isRightAnswer() {
         return false;
-    }
-
-    @Override
-    public boolean endsOnFail() {
-        return true;
     }
 }

@@ -4,7 +4,7 @@ import hexlet.code.interfaces.Game;
 
 public final class Exit implements Game {
 
-    private String name = "Exit";
+    private final String name = "Exit";
 
     @Override
     public String getRules() {
@@ -45,10 +45,4 @@ public final class Exit implements Game {
     public boolean isRightAnswer() {
         return false;
     }
-
-    @Override
-    public boolean endsOnFail() {
-        return true;
-    }
-
 }
