@@ -45,7 +45,7 @@ public final class Prime implements Game {
         }
         int k = (int) Math.round(Math.sqrt(number));
         for (int i = FIRST_PRIME_NUMBER; i <= k; i += two) {
-            if (number % k == zero) {
+            if (number % i == zero) {
                 return false;
             }
         }
