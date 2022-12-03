@@ -4,14 +4,16 @@ import hexlet.code.interfaces.Game;
 import hexlet.code.utils.RandomGenerator;
 
 public final class Prime implements Game {
+    private static final int MIN_VALUE = 0;
+    private static final int MAX_VALUE = 50;
+    private static final int FIRST_PRIME_NUMBER = 3;
+
     private final String name;
     private final String rules;
     private String question;
     private static String lastAnswer;
     private static String rightAnswer;
     private final boolean endsOnFail;
-
-    private static final int FIRST_PRIME_NUMBER = 3;
 
     public Prime() {
         this.name = "Prime";
@@ -26,7 +28,7 @@ public final class Prime implements Game {
 
     @Override
     public void startRound() {
-        int number = RandomGenerator.getRandomNumber();
+        int number = RandomGenerator.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
         question = String.valueOf(number);
         rightAnswer = isPrime(number) ? "yes" : "no";
     }
