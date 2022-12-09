@@ -29,7 +29,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.print("Your choice: ");
 
-        int choice = Cli.getUserInteraction().nextInt();
+        int choice = Cli.getScanner().nextInt();
         switch (choice) {
             case GREET_ID -> {
                 Cli.greet();
@@ -58,6 +58,6 @@ public class App {
 
             }
         }
-        Cli.getUserInteraction().close();
+        Cli.getScanner().close();
     }
 }
