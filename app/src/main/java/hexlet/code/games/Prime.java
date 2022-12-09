@@ -27,7 +27,7 @@ public final class Prime {
         if (number <= one) {
             return false;
         }
-        if (number <= FIRST_PRIME_NUMBER) {
+        if (number <= FIRST_PRIME_NUMBER || number % 2 == 0) {
             return true;
         }
         int k = (int) Math.round(Math.sqrt(number));
