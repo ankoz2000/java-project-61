@@ -51,7 +51,9 @@ public class App {
                 Cli.greet();
                 Prime.runGame(ROUNDS);
             }
-            default -> {}
+            default -> {
+
+            }
         }
     }
 }
