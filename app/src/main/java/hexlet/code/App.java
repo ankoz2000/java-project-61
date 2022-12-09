@@ -1,17 +1,9 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-import hexlet.code.games.GCD;
-
-import java.util.Scanner;
+import hexlet.code.games.*;
 
 public class App {
     private static final int ROUNDS = 3;
-
-    private static Scanner userInteraction = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -26,7 +18,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.print("Your choice: ");
 
-        int choice = userInteraction.nextInt();
+        int choice = Cli.userInteraction.nextInt();
         switch (choice) {
             case 1 -> {
                 Cli.greet();
