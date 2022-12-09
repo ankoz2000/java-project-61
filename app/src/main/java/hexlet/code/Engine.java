@@ -1,32 +1,22 @@
 package hexlet.code;
 
-import hexlet.code.games.Greeting;
-import hexlet.code.interfaces.Game;
+import java.util.Scanner;
 
 public final class Engine {
-    private final Integer roundsCount;
-
-    public Engine(Integer count) {
-        this.roundsCount = count;
-    }
-
-    public void start(Game game) {
-        for (int i = 0; i < getRoundsCount(); i++) {
-            game.startRound();
-            Cli.askQuestion(game.getQuestion());
-            game.setAnswerFromUser(Cli.getAnswer());
-            if (game.isRightAnswer()) {
-                Cli.showSuccessMessage("Correct!");
-            } else {
-                Cli.showErrorMessage("'" + game.getLastAnswer() + "'"
-                        + " is wrong answer ;(. Correct answer was '" + game.getRightAnswer() + "'.\n"
-                        + "Let's try again, " + Greeting.getUsername() + "!");
-                return;
-            }
+    public static boolean start(String question, String rightAnswer) {
+        Scanner userInteraction = new Scanner(System.in);
+        System.out.println(question);
+        String answer = userInteraction.next();
+        if (answer.equals(rightAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + answer + "'"
+                    + " is wrong answer ;(. Correct answer was '" + rightAnswer + "'.\n"
+                    + "Let's try again, " + Cli.getUserName() + "!");
+            userInteraction.close();
+            return false;
         }
-    }
-
-    public Integer getRoundsCount() {
-        return roundsCount;
+        userInteraction.close();
+        return true;
     }
 }

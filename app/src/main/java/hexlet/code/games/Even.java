@@ -1,65 +1,30 @@
 package hexlet.code.games;
 
-import hexlet.code.interfaces.Game;
-import hexlet.code.utils.RandomGenerator;
+import hexlet.code.Engine;
+import hexlet.code.utils.Utils;
 
 
-public final class Even implements Game {
-    private static String lastAnswer;
-    private static String rightAnswer;
-    private final String name;
-    private String question;
-    private final String rules;
-
-    public Even() {
-        name = "Even";
-        rules = "Answer 'yes' if the number "
+public final class Even {
+    private static final int MIN_VALUE = 0;
+    private static final int MAX_VALUE = 100;
+    public static void runGame(int rounds) {
+        String rules = "Answer 'yes' if the number "
                 + "is even, otherwise answer 'no'.";
-    }
+        System.out.println(rules);
 
-    public String getRules() {
-        return rules;
-    }
-
-    public void startRound() {
-        int randomNumber = RandomGenerator.getRandomNumber();
-        question = String.valueOf(randomNumber);
-        rightAnswer = isEven(randomNumber) ? "yes" : "no";
+        for (int i = 0; i < rounds; i++) {
+            int randomNumber = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
+            String question = String.valueOf(randomNumber);
+            String rightAnswer = isEven(randomNumber) ? "yes" : "no";
+            if (!Engine.start(question, rightAnswer)) {
+                return;
+            }
+        }
     }
 
     private static boolean isEven(int number) {
         int zero = 0;
         int two = 2;
         return number % two == zero;
-    }
-
-    @Override
-    public String getLastAnswer() {
-        return lastAnswer;
-    }
-
-    @Override
-    public String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    @Override
-    public String getGameName() {
-        return name;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public void setAnswerFromUser(String answerFromUser) {
-        lastAnswer = answerFromUser;
-    }
-
-    @Override
-    public boolean isRightAnswer() {
-        return lastAnswer.equals(rightAnswer);
     }
 }

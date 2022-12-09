@@ -1,37 +1,27 @@
 package hexlet.code.games;
 
-import hexlet.code.interfaces.Game;
-import hexlet.code.utils.RandomGenerator;
+import hexlet.code.Engine;
+import hexlet.code.utils.Utils;
 
-public final class Prime implements Game {
+public final class Prime {
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 50;
     private static final int FIRST_PRIME_NUMBER = 3;
 
-    private final String name;
-    private final String rules;
-    private String question;
-    private static String lastAnswer;
-    private static String rightAnswer;
-
-    public Prime() {
-        this.name = "Prime";
-        this.rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void runGame(int rounds) {
+        String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        System.out.println(rules);
+        for (int i = 0; i < rounds; i++) {
+            int number = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
+            String question = String.valueOf(number);
+            String rightAnswer = isPrime(number) ? "yes" : "no";
+            if (!Engine.start(question, rightAnswer)) {
+                return;
+            }
+        }
     }
 
-    @Override
-    public String getRules() {
-        return rules;
-    }
-
-    @Override
-    public void startRound() {
-        int number = RandomGenerator.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
-        question = String.valueOf(number);
-        rightAnswer = isPrime(number) ? "yes" : "no";
-    }
-
-    public boolean isPrime(int number) {
+    public static boolean isPrime(int number) {
         int one = 1;
         int two = 2;
         int zero = 0;
@@ -48,35 +38,5 @@ public final class Prime implements Game {
             }
         }
         return true;
-    }
-
-    @Override
-    public String getLastAnswer() {
-        return lastAnswer;
-    }
-
-    @Override
-    public String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    @Override
-    public String getGameName() {
-        return name;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public void setAnswerFromUser(String answerFromUser) {
-        lastAnswer = answerFromUser;
-    }
-
-    @Override
-    public boolean isRightAnswer() {
-        return lastAnswer.equals(rightAnswer);
     }
 }

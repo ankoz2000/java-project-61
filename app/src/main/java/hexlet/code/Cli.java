@@ -1,77 +1,24 @@
 package hexlet.code;
 
-import hexlet.code.interfaces.Game;
-
 import java.util.Scanner;
 
 public class Cli {
-    private static Scanner userInteraction;
+    private static String userName;
 
-    public static void init() {
-        userInteraction = new Scanner(System.in);
-    }
+    public static void greet() {
+        Scanner userInteraction = new Scanner(System.in);
 
-    public static void showInitMessage() {
-        init();
-        System.out.println("Please enter the game number and press Enter.");
-    }
-
-    public static void showAvailableChoices(Game[] games) {
-        int arrayOffset = 1;
-        int i = games.length - arrayOffset;
-        for (Game game : games) {
-            System.out.println(i + " - " + game.getGameName());
-            i--;
-        }
-    }
-
-    public static int selectGame() {
-        System.out.print("Your choice: ");
-        return userInteraction.nextInt();
-    }
-
-    public static void showWelcomeLetter() {
         System.out.println("Welcome to the Brain Games!");
-    }
+        System.out.println("May I have your name? ");
 
-    public static void close() {
+        userName = userInteraction.next();
+
+        System.out.println("Hello, " + userName + "!");
+
         userInteraction.close();
     }
 
-    public static void showMessageWithoutNewLine(String message) {
-        System.out.print(message);
-    }
-
-    public static void showPreInteractionMessageToUser(String message) {
-        System.out.println(message);
-    }
-
-    public static void showMessageToUser(String message) {
-        System.out.println(message);
-    }
-
-    public static void askQuestion(String question) {
-        System.out.println("Question: " + question);
-        showMessageWithoutNewLine("Your answer: ");
-    }
-
-    public static String getAnswer() {
-        return userInteraction.next();
-    }
-
-    public static void showEndMessage(String endMessage) {
-        System.out.print(endMessage);
-    }
-
-    public static void closeInteraction() {
-        close();
-    }
-
-    public static void showErrorMessage(String errorMessage) {
-        System.out.println(errorMessage);
-    }
-
-    public static void showSuccessMessage(String successMessage) {
-        System.out.println(successMessage);
+    public static String getUserName() {
+        return userName;
     }
 }

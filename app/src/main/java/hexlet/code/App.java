@@ -1,35 +1,52 @@
 package hexlet.code;
 
-import hexlet.code.games.Greeting;
-import hexlet.code.interfaces.Game;
-import hexlet.code.interfaces.GamePreprocessor;
+import hexlet.code.games.*;
+
+import java.util.Scanner;
 
 public class App {
     private static final int ROUNDS = 3;
 
+    private static Scanner userInteraction = new Scanner(System.in);
+
     public static void main(String[] args) {
-        GameStorage gameStorage = new GameStorage();
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("2 - Even");
+        System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
+        System.out.println("0 - Exit");
 
-        Cli.showInitMessage();
-        Cli.showAvailableChoices(gameStorage.getGames());
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.print("Your choice: ");
 
-        int selectedGameId = Cli.selectGame();
-
-        if (gameStorage.getExitId().equals(selectedGameId)) {
-            return;
-        } else {
-            Cli.showWelcomeLetter();
-            ((GamePreprocessor) gameStorage.getGreeting()).greet();
-            if (gameStorage.getGreetingId().equals(selectedGameId)) {
-                return;
+        int choice = userInteraction.nextInt();
+        switch (choice) {
+            case 1 -> {
+                Cli.greet();
+            }
+            case 2 -> {
+                Cli.greet();
+                Even.runGame(ROUNDS);
+            }
+            case 3 -> {
+                Cli.greet();
+                Calculator.runGame(ROUNDS);
+            }
+            case 4 -> {
+                Cli.greet();
+                GCD.runGame(ROUNDS);
+            }
+            case 5 -> {
+                Cli.greet();
+                Progression.runGame(ROUNDS);
+            }
+            case 6 -> {
+                Cli.greet();
+                Prime.runGame(ROUNDS);
             }
         }
-
-        Game game = gameStorage.getGameById(selectedGameId);
-        Cli.showPreInteractionMessageToUser(game.getRules());
-        Engine engine = new Engine(ROUNDS);
-        engine.start(game);
-        Cli.showEndMessage(Greeting.congratulation());
-        Cli.closeInteraction();
     }
 }

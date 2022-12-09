@@ -1,15 +1,9 @@
 package hexlet.code.games;
 
-import hexlet.code.interfaces.Game;
-import hexlet.code.utils.RandomGenerator;
+import hexlet.code.Engine;
+import hexlet.code.utils.Utils;
 
-public final class Progression implements Game {
-    private final String name;
-    private final String rules;
-    private String question;
-    private static String lastAnswer;
-    private static String rightAnswer;
-
+public final class Progression {
     private static final int MIN_STEP_VALUE = 1;
     private static final int MAX_STEP_VALUE = 10;
 
@@ -21,30 +15,30 @@ public final class Progression implements Game {
 
     private static final int MIN_POSITION_TO_HIDE = 1;
 
-    public Progression() {
-        this.name = "Progression";
-        this.rules = "What number is missing in the progression?";
+    public static void runGame(int rounds) {
+        String rules = "What number is missing in the progression?";
+        System.out.println(rules);
+        for (int i = 0; i < rounds; i++) {
+            int step = Utils.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
+
+            int firstNumber = Utils.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
+
+            int numberCount = Utils.getRandomNumberWithInterval(MIN_NUMBER_COUNT, MAX_NUMBER_COUNT);
+            numberCount = numberCount > MAX_NUMBER_COUNT ? numberCount - numberCount % MAX_NUMBER_COUNT : numberCount;
+
+            int hiddenNumberPosition = Utils.getRandomNumberWithInterval(MIN_POSITION_TO_HIDE, numberCount);
+
+            String rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
+
+            String question = getProgressionString(firstNumber, numberCount, hiddenNumberPosition, step);
+
+            if (!Engine.start(question, rightAnswer)) {
+                return;
+            }
+        }
     }
 
-
-    @Override
-    public String getRules() {
-        return rules;
-    }
-
-    @Override
-    public void startRound() {
-        int step = RandomGenerator.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
-
-        int firstNumber = RandomGenerator.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
-
-        int numberCount = RandomGenerator.getRandomNumberWithInterval(MIN_NUMBER_COUNT, MAX_NUMBER_COUNT);
-        numberCount = numberCount > MAX_NUMBER_COUNT ? numberCount - numberCount % MAX_NUMBER_COUNT : numberCount;
-
-        int hiddenNumberPosition = RandomGenerator.getRandomNumberWithInterval(MIN_POSITION_TO_HIDE, numberCount);
-
-        rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
-
+    public static String getProgressionString(int firstNumber, int numberCount, int hiddenNumberPosition, int step) {
         StringBuilder questionBuilder = new StringBuilder();
         for (int i = 1; i <= numberCount; i++) {
             if (i == hiddenNumberPosition) {
@@ -56,42 +50,11 @@ public final class Progression implements Game {
             String whiteSpace = " ";
             questionBuilder.append(whiteSpace);
         }
-
-        question = questionBuilder.toString().trim();
+        return questionBuilder.toString().trim();
     }
 
-    public int getProgressionNumber(int firstNumber, int step, int position) {
+    public static int getProgressionNumber(int firstNumber, int step, int position) {
         int offset = 1;
         return firstNumber + step * (position - offset);
-    }
-
-    @Override
-    public String getLastAnswer() {
-        return lastAnswer;
-    }
-
-    @Override
-    public String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    @Override
-    public String getGameName() {
-        return name;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
-    @Override
-    public void setAnswerFromUser(String answerFromUser) {
-        lastAnswer = answerFromUser;
-    }
-
-    @Override
-    public boolean isRightAnswer() {
-        return lastAnswer.equals(rightAnswer);
     }
 }
