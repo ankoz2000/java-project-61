@@ -18,14 +18,7 @@ public final class Calculator {
             int firstOperand = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
             int secondOperand = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
             String question = firstOperand + " " + operation + " " + secondOperand;
-            String rightAnswer;
-            if (operation.equals("+")) {
-                rightAnswer = String.valueOf(firstOperand + secondOperand);
-            } else if (operation.equals("-")) {
-                rightAnswer = String.valueOf(firstOperand - secondOperand);
-            } else {
-                rightAnswer = String.valueOf(firstOperand * secondOperand);
-            }
+            String rightAnswer = getExpressionAnswer(firstOperand, secondOperand, operation);
             if (!Engine.start(question, rightAnswer)) {
                 return;
             }
@@ -44,5 +37,15 @@ public final class Calculator {
             return "-";
         }
         return "*";
+    }
+
+    private static String getExpressionAnswer(int firstOperand, int secondOperand, String operation) {
+        if (operation.equals("+")) {
+            return String.valueOf(firstOperand + secondOperand);
+        } else if (operation.equals("-")) {
+            return String.valueOf(firstOperand - secondOperand);
+        } else {
+            return String.valueOf(firstOperand * secondOperand);
+        }
     }
 }

@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 public final class Engine {
     public static boolean start(String question, String rightAnswer) {
         System.out.println("Question: " + question);
@@ -16,6 +14,7 @@ public final class Engine {
 
             return false;
         }
+        System.out.println("Congratulations, " + Cli.getUserName() + "!");
         return true;
     }
 }
