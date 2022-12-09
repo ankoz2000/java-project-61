@@ -5,7 +5,7 @@ import java.util.Scanner;
 public final class Engine {
     public static boolean start(String question, String rightAnswer) {
         Scanner userInteraction = new Scanner(System.in);
-        System.out.println(question);
+        System.out.println("Question: " + question);
         String answer = userInteraction.next();
         if (answer.equals(rightAnswer)) {
             System.out.println("Correct!");
