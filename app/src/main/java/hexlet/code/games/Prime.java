@@ -24,16 +24,19 @@ public final class Prime {
     public static boolean isPrime(int number) {
         int one = 1;
         int two = 2;
-        int zero = 0;
-        if (number <= one || number % two == zero) {
+        if (number <= one || number % two == 0) {
             return false;
         }
         if (number == FIRST_PRIME_NUMBER) {
             return true;
         }
         int k = (int) Math.round(Math.sqrt(number));
-        for (int i = FIRST_PRIME_NUMBER; i <= k; i += two) {
-            if (number % i == zero) {
+        return findMinDivider(number, two, k);
+    }
+
+    private static boolean findMinDivider(int number, int step, int k) {
+        for (int i = FIRST_PRIME_NUMBER; i <= k; i += step) {
+            if (number % i == 0) {
                 return false;
             }
         }
