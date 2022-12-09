@@ -5,6 +5,13 @@ import hexlet.code.games.*;
 public class App {
     private static final int ROUNDS = 3;
 
+    private static final int GCD_ID = 4;
+    private static final int EVEN_ID = 2;
+    private static final int CALC_ID = 3;
+    private static final int GREET_ID = 1;
+    private static final int PRIME_ID = 6;
+    private static final int PROGRESSION_ID = 5;
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -18,28 +25,28 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.print("Your choice: ");
 
-        int choice = Cli.userInteraction.nextInt();
+        int choice = Cli.getUserInteraction().nextInt();
         switch (choice) {
-            case 1 -> {
+            case GREET_ID -> {
                 Cli.greet();
             }
-            case 2 -> {
+            case EVEN_ID -> {
                 Cli.greet();
                 Even.runGame(ROUNDS);
             }
-            case 3 -> {
+            case CALC_ID -> {
                 Cli.greet();
                 Calculator.runGame(ROUNDS);
             }
-            case 4 -> {
+            case GCD_ID -> {
                 Cli.greet();
                 GCD.runGame(ROUNDS);
             }
-            case 5 -> {
+            case PROGRESSION_ID -> {
                 Cli.greet();
                 Progression.runGame(ROUNDS);
             }
-            case 6 -> {
+            case PRIME_ID -> {
                 Cli.greet();
                 Prime.runGame(ROUNDS);
             }
@@ -47,5 +54,6 @@ public class App {
 
             }
         }
+        Cli.getUserInteraction().close();
     }
 }

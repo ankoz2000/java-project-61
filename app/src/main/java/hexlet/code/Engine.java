@@ -3,7 +3,7 @@ package hexlet.code;
 public final class Engine {
     public static boolean start(String question, String rightAnswer) {
         System.out.println("Question: " + question);
-        String answer = Cli.userInteraction.next();
+        String answer = Cli.getUserInteraction().next();
 
         if (answer.equals(rightAnswer)) {
             System.out.println("Correct!");

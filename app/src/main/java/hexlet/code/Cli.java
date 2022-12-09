@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cli {
     private static String userName;
 
-    public static Scanner userInteraction = new Scanner(System.in);
+    private static final Scanner userInteraction = new Scanner(System.in);
 
     public static void greet() {
         System.out.println("Welcome to the Brain Games!");
@@ -18,5 +18,9 @@ public class Cli {
 
     public static String getUserName() {
         return userName;
+    }
+
+    public static Scanner getUserInteraction() {
+        return userInteraction;
     }
 }
