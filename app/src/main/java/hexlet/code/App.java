@@ -6,6 +6,8 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
+import java.util.Scanner;
+
 public class App {
     private static final int ROUNDS = 3;
 
@@ -29,35 +31,32 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.print("Your choice: ");
 
-        int choice = Cli.getScanner().nextInt();
+        Scanner scanner = new Scanner(System.in);
+
+        int choice = scanner.nextInt();
+
         switch (choice) {
             case GREET_ID -> {
                 Cli.greet();
             }
             case EVEN_ID -> {
-                Cli.greet();
                 Even.runGame(ROUNDS);
             }
             case CALC_ID -> {
-                Cli.greet();
                 Calculator.runGame(ROUNDS);
             }
             case GCD_ID -> {
-                Cli.greet();
                 GCD.runGame(ROUNDS);
             }
             case PROGRESSION_ID -> {
-                Cli.greet();
                 Progression.runGame(ROUNDS);
             }
             case PRIME_ID -> {
-                Cli.greet();
                 Prime.runGame(ROUNDS);
             }
             default -> {
-
+                System.out.println("Invalid number entered. Restart the game.");
             }
         }
-        Cli.getScanner().close();
     }
 }
