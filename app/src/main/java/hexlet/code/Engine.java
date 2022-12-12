@@ -24,11 +24,11 @@ public final class Engine {
                         + " is wrong answer ;(. Correct answer was '" + rightAnswer + "'.\n"
                         + "Let's try again, " + userName + "!");
 
-                return false;
             }
         }
 
         System.out.println("Congratulations, " + userName + "!");
+        scanner.close();
         return true;
     }
 }
