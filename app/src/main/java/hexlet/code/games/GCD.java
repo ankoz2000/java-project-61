@@ -16,9 +16,7 @@ public final class GCD {
         roundsData[1] = generateRoundData();
         roundsData[2] = generateRoundData();
 
-        if (!Engine.start(roundsData, DESCRIPTION)) {
-            return;
-        }
+        Engine.start(roundsData, DESCRIPTION);
     }
 
     private static int findGcd(int firstNumber, int secondNumber) {
