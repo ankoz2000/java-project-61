@@ -24,9 +24,7 @@ public final class Progression {
         roundsData[1] = generateRoundData();
         roundsData[2] = generateRoundData();
 
-        if (!Engine.start(roundsData, DESCRIPTION)) {
-            return;
-        }
+        Engine.start(roundsData, DESCRIPTION);
     }
 
     public static String getProgressionString(int firstNumber, int numberCount, int hiddenNumberPosition, int step) {

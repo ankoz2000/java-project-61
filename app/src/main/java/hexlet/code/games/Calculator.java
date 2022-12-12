@@ -19,9 +19,7 @@ public final class Calculator {
         roundsData[1] = generateRoundData();
         roundsData[2] = generateRoundData();
 
-        if (!Engine.start(roundsData, DESCRIPTION)) {
-            return;
-        }
+        Engine.start(roundsData, DESCRIPTION);
     }
 
     public static String getRandomOperation() {

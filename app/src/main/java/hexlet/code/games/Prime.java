@@ -17,9 +17,7 @@ public final class Prime {
         roundsData[1] = generateRoundData();
         roundsData[2] = generateRoundData();
 
-        if (!Engine.start(roundsData, DESCRIPTION)) {
-            return;
-        }
+        Engine.start(roundsData, DESCRIPTION);
     }
 
     public static boolean isPrime(int number) {
