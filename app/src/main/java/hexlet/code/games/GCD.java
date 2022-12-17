@@ -20,12 +20,15 @@ public final class GCD {
 
     private static int findGcd(int firstNumber, int secondNumber) {
         int minDivider = 1;
-        int zero = 0;
         if (firstNumber == 0 || secondNumber == 0) {
             return minDivider;
         }
+        return findMaxDivider(firstNumber, secondNumber, minDivider);
+    }
+
+    private static int findMaxDivider(int firstNumber, int secondNumber, int minDivider) {
         for (int i = Math.min(firstNumber, secondNumber); i > minDivider; i--) {
-            if (firstNumber % i == zero && secondNumber % i == zero) {
+            if (firstNumber % i == 0 && secondNumber % i == 0) {
                 return i;
             }
         }
