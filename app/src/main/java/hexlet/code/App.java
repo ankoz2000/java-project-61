@@ -9,8 +9,6 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    private static final int ROUNDS = 3;
-
     private static final int GCD_ID = 4;
     private static final int EVEN_ID = 2;
     private static final int CALC_ID = 3;
@@ -33,30 +31,16 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        int choice = scanner.nextInt();
+        int choice = Integer.parseInt(scanner.next());
 
         switch (choice) {
-            case GREET_ID -> {
-                Cli.greet();
-            }
-            case EVEN_ID -> {
-                Even.runGame(ROUNDS);
-            }
-            case CALC_ID -> {
-                Calculator.runGame(ROUNDS);
-            }
-            case GCD_ID -> {
-                GCD.runGame(ROUNDS);
-            }
-            case PROGRESSION_ID -> {
-                Progression.runGame(ROUNDS);
-            }
-            case PRIME_ID -> {
-                Prime.runGame(ROUNDS);
-            }
-            default -> {
-                System.out.println("Invalid number entered. Restart the game.");
-            }
+            case GREET_ID -> Cli.greet();
+            case EVEN_ID -> Even.runGame();
+            case CALC_ID -> Calculator.runGame();
+            case GCD_ID -> GCD.runGame();
+            case PROGRESSION_ID -> Progression.runGame();
+            case PRIME_ID -> Prime.runGame();
+            default -> System.out.println("Invalid number entered. Restart the game.");
         }
     }
 }
