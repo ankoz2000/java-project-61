@@ -5,8 +5,10 @@ import java.util.Scanner;
 public final class Engine {
     private static final int ROUNDS = 3;
 
+    private static String userName;
+
     public static boolean start(String[][] roundsData, String description) {
-        String userName = greet();
+        greet();
 
         System.out.println(description);
 
@@ -34,15 +36,14 @@ public final class Engine {
         return true;
     }
 
-    private static String greet() {
+    private static void greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name? ");
 
         Scanner scanner = new Scanner(System.in);
-        String userName = scanner.next();
+        userName = scanner.next();
 
         System.out.println("Hello, " + userName + "!");
-        return userName;
     }
 
     public static Integer getMaxRoundsCount() {

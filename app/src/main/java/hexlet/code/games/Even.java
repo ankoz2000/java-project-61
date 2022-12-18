@@ -27,6 +27,7 @@ public final class Even {
 
     private static String[] generateRoundData() {
         int randomNumber = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
+
         String question = String.valueOf(randomNumber);
         String rightAnswer = isEven(randomNumber) ? "yes" : "no";
 
