@@ -28,7 +28,7 @@ public final class Progression {
 
     public static String getProgressionString(String[] progression, String hiddenNumber) {
         StringBuilder questionBuilder = new StringBuilder();
-        for (String num : progression){
+        for (String num : progression) {
             if (num.equals(hiddenNumber)) {
                 questionBuilder.append("..");
             } else {
