@@ -41,8 +41,7 @@ public final class Progression {
     }
 
     public static int getProgressionNumber(int firstNumber, int step, int position) {
-        int offset = 1;
-        return firstNumber + step * (position - offset);
+        return firstNumber + step * position;
     }
 
     private static String[] generateRoundData() {
@@ -64,7 +63,7 @@ public final class Progression {
 
     private static String[] makeProgression(int first, int step, int length) {
         String[] progression = new String[length];
-        for (int i = 1; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             progression[i] = String.valueOf(getProgressionNumber(first, step, i));
         }
         return progression;
