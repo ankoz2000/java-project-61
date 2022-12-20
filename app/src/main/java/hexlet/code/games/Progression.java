@@ -26,21 +26,6 @@ public final class Progression {
         Engine.start(roundsData, DESCRIPTION);
     }
 
-    public static String getProgressionString(int firstNumber, int numberCount, int hiddenNumberPosition, int step) {
-        StringBuilder questionBuilder = new StringBuilder();
-        for (int i = 1; i <= numberCount; i++) {
-            if (i == hiddenNumberPosition) {
-                String replacement = "..";
-                questionBuilder.append(replacement);
-            } else {
-                questionBuilder.append(getProgressionNumber(firstNumber, step, i));
-            }
-            String whiteSpace = " ";
-            questionBuilder.append(whiteSpace);
-        }
-        return questionBuilder.toString().trim();
-    }
-
     public static String getProgressionString(String[] progression, String hiddenNumber) {
         StringBuilder questionBuilder = new StringBuilder();
         for (String num : progression){
