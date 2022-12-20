@@ -12,7 +12,7 @@ public final class Even {
 
     public static void runGame() {
         String[][] roundsData = new String[Engine.getMaxRoundsCount()][2];
-        for (int i = 0; i < Engine.getMaxRoundsCount(); i += 1) {
+        for (int i = 0; i < Engine.getMaxRoundsCount(); i++) {
             roundsData[i] = generateRoundData();
         }
 
