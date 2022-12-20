@@ -41,6 +41,20 @@ public final class Progression {
         return questionBuilder.toString().trim();
     }
 
+    public static String getProgressionString(String[] progression, String hiddenNumber) {
+        StringBuilder questionBuilder = new StringBuilder();
+        for (String num : progression){
+            if (num.equals(hiddenNumber)) {
+                questionBuilder.append("..");
+            } else {
+                questionBuilder.append(num);
+            }
+            String whiteSpace = " ";
+            questionBuilder.append(whiteSpace);
+        }
+        return questionBuilder.toString().trim();
+    }
+
     public static int getProgressionNumber(int firstNumber, int step, int position) {
         int offset = 1;
         return firstNumber + step * (position - offset);
@@ -48,22 +62,26 @@ public final class Progression {
 
     private static String[] generateRoundData() {
         int step = Utils.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
-
         int firstNumber = Utils.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
-
         int numberCount = Utils.getRandomNumberWithInterval(MIN_NUMBER_COUNT, MAX_NUMBER_COUNT);
-        numberCount = numberCount > MAX_NUMBER_COUNT ? numberCount - numberCount % MAX_NUMBER_COUNT : numberCount;
-
         int hiddenNumberPosition = Utils.getRandomNumberWithInterval(MIN_POSITION_TO_HIDE, numberCount);
 
-        String rightAnswer = String.valueOf(getProgressionNumber(firstNumber, step, hiddenNumberPosition));
+        String[] progression = makeProgression(firstNumber, step, numberCount);
 
-        String question = getProgressionString(firstNumber, numberCount, hiddenNumberPosition, step);
+        String rightAnswer = progression[hiddenNumberPosition];
+        String question = getProgressionString(progression, progression[hiddenNumberPosition]);
 
         String[] roundsData = new String[2];
         roundsData[0] = question;
         roundsData[1] = rightAnswer;
-
         return roundsData;
+    }
+
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+        for (int i = 1; i <= length; i++) {
+            progression[i] = String.valueOf(getProgressionNumber(first, step, i));
+        }
+        return progression;
     }
 }

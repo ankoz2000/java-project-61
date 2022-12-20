@@ -26,12 +26,11 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
 
-        System.out.println("Please enter the game number and press Enter.");
         System.out.print("Your choice: ");
 
         Scanner scanner = new Scanner(System.in);
 
-        int choice = Integer.parseInt(scanner.next());
+        int choice = scanner.nextInt();
 
         switch (choice) {
             case GREET_ID -> Cli.greet();
