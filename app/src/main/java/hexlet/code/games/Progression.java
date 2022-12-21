@@ -26,7 +26,7 @@ public final class Progression {
         Engine.start(roundsData, DESCRIPTION);
     }
 
-    public static String getProgressionString(String[] progression, String hiddenNumber) {
+    private static String getProgressionString(String[] progression, String hiddenNumber) {
         StringBuilder questionBuilder = new StringBuilder();
         for (String num : progression) {
             if (num.equals(hiddenNumber)) {
@@ -40,10 +40,6 @@ public final class Progression {
         return questionBuilder.toString().trim();
     }
 
-    public static int getProgressionNumber(int firstNumber, int step, int position) {
-        return firstNumber + step * position;
-    }
-
     private static String[] generateRoundData() {
         int step = Utils.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
         int firstNumber = Utils.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
@@ -53,7 +49,8 @@ public final class Progression {
 
         String[] progression = makeProgression(firstNumber, step, numberCount);
         String rightAnswer = progression[hiddenNumberPosition];
-        String question = getProgressionString(progression, progression[hiddenNumberPosition]);
+        progression[hiddenNumberPosition] = "..";
+        String question = String.join(" ", progression);
 
         String[] roundsData = new String[2];
         roundsData[0] = question;
@@ -64,7 +61,7 @@ public final class Progression {
     private static String[] makeProgression(int first, int step, int length) {
         String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
-            progression[i] = String.valueOf(getProgressionNumber(first, step, i));
+            progression[i] = String.valueOf(first + step * i);
         }
         return progression;
     }

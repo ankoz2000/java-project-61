@@ -8,7 +8,6 @@ public final class Prime {
 
     private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 50;
-    private static final int FIRST_PRIME_NUMBER = 3;
 
     public static void runGame() {
         String[][] roundsData = new String[Engine.getMaxRoundsCount()][2];
@@ -19,21 +18,16 @@ public final class Prime {
         Engine.start(roundsData, DESCRIPTION);
     }
 
-    public static boolean isPrime(int number) {
-        int one = 1;
-        int two = 2;
-        if (number <= one || number % 2 == 0) {
+    private static boolean isPrime(int number) {
+        if (number < 2) {
             return false;
         }
-        if (number <= FIRST_PRIME_NUMBER) {
-            return true;
-        }
         int k = (int) Math.round(Math.sqrt(number));
-        return findMinDivider(number, two, k);
+        return findMinDivider(number, k);
     }
 
-    private static boolean findMinDivider(int number, int step, int k) {
-        for (int i = FIRST_PRIME_NUMBER; i <= k; i += step) {
+    private static boolean findMinDivider(int number,  int k) {
+        for (int i = 2; i <= k; i += 2) {
             if (number % i == 0) {
                 return false;
             }

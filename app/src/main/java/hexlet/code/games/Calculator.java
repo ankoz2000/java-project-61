@@ -20,18 +20,18 @@ public final class Calculator {
         Engine.start(roundsData, DESCRIPTION);
     }
 
-    public static char getRandomOperation() {
+    private static char getRandomOperation() {
         int indexOfOperator = Utils.getRandomNumberWithInterval(0, OPERATORS.length - 1);
         return OPERATORS[indexOfOperator];
     }
 
-    private static String calculate(int firstOperand, int secondOperand, String operation) {
+    private static int calculate(int firstOperand, int secondOperand, String operation) {
         if (operation.equals("+")) {
-            return String.valueOf(firstOperand + secondOperand);
+            return firstOperand + secondOperand;
         } else if (operation.equals("-")) {
-            return String.valueOf(firstOperand - secondOperand);
+            return firstOperand - secondOperand;
         } else {
-            return String.valueOf(firstOperand * secondOperand);
+            return firstOperand * secondOperand;
         }
     }
 
@@ -42,7 +42,7 @@ public final class Calculator {
         int secondOperand = Utils.getRandomNumberWithInterval(MIN_VALUE, MAX_VALUE);
 
         String question = firstOperand + " " + operation + " " + secondOperand;
-        String rightAnswer = calculate(firstOperand, secondOperand, operation);
+        String rightAnswer = String.valueOf(calculate(firstOperand, secondOperand, operation));
 
         String[] roundsData = new String[2];
         roundsData[0] = question;

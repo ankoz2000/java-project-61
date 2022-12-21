@@ -20,9 +20,7 @@ public final class Even {
     }
 
     private static boolean isEven(int number) {
-        int zero = 0;
-        int two = 2;
-        return number % two == zero;
+        return number % 2 == 0;
     }
 
     private static String[] generateRoundData() {

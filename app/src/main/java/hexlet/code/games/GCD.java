@@ -19,11 +19,10 @@ public final class GCD {
     }
 
     private static int findGcd(int firstNumber, int secondNumber) {
-        int minDivider = 1;
         if (firstNumber == 0 || secondNumber == 0) {
-            return minDivider;
+            return 1;
         }
-        return findMaxDivider(firstNumber, secondNumber, minDivider);
+        return findMaxDivider(firstNumber, secondNumber, 1);
     }
 
     private static int findMaxDivider(int firstNumber, int secondNumber, int minDivider) {
