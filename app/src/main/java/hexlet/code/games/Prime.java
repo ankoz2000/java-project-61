@@ -19,7 +19,7 @@ public final class Prime {
     }
 
     private static boolean isPrime(int number) {
-        if (number <= 2) {
+        if (number < 2) {
             return false;
         }
         int k = (int) Math.round(Math.sqrt(number));
@@ -27,7 +27,7 @@ public final class Prime {
     }
 
     private static boolean findMinDivider(int number,  int k) {
-        for (int i = 3; i <= k; i += 2) {
+        for (int i = 2; i <= k; i += 2) {
             if (number % i == 0) {
                 return false;
             }
