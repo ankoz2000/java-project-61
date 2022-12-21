@@ -26,20 +26,6 @@ public final class Progression {
         Engine.start(roundsData, DESCRIPTION);
     }
 
-    private static String getProgressionString(String[] progression, String hiddenNumber) {
-        StringBuilder questionBuilder = new StringBuilder();
-        for (String num : progression) {
-            if (num.equals(hiddenNumber)) {
-                questionBuilder.append("..");
-            } else {
-                questionBuilder.append(num);
-            }
-            String whiteSpace = " ";
-            questionBuilder.append(whiteSpace);
-        }
-        return questionBuilder.toString().trim();
-    }
-
     private static String[] generateRoundData() {
         int step = Utils.getRandomNumberWithInterval(MIN_STEP_VALUE, MAX_STEP_VALUE);
         int firstNumber = Utils.getRandomNumberWithInterval(MIN_FIRST_NUMBER, MAX_FIRST_NUMBER);
