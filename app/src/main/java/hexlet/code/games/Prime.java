@@ -23,10 +23,6 @@ public final class Prime {
             return false;
         }
         int k = (int) Math.round(Math.sqrt(number));
-        return findMinDivider(number, k);
-    }
-
-    private static boolean findMinDivider(int number,  int k) {
         for (int i = 2; i <= k; i += 1) {
             if (number % i == 0) {
                 return false;
