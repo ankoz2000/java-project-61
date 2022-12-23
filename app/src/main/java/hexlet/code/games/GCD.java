@@ -19,19 +19,12 @@ public final class GCD {
     }
 
     private static int findGcd(int firstNumber, int secondNumber) {
-        if (firstNumber == 0 || secondNumber == 0) {
-            return 1;
+        while (secondNumber != 0) {
+            int tmp = firstNumber % secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = tmp;
         }
-        return findMaxDivider(firstNumber, secondNumber, 1);
-    }
-
-    private static int findMaxDivider(int firstNumber, int secondNumber, int minDivider) {
-        for (int i = Math.min(firstNumber, secondNumber); i > minDivider; i--) {
-            if (firstNumber % i == 0 && secondNumber % i == 0) {
-                return i;
-            }
-        }
-        return minDivider;
+        return firstNumber;
     }
 
     private static String[] generateRoundData() {
