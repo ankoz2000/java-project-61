@@ -5,14 +5,15 @@ import java.util.Scanner;
 public final class Engine {
     private static final int ROUNDS = 3;
 
-    private static String userName;
-
     public static void start(String[][] roundsData, String description) {
-        greet();
-
-        System.out.println(description);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? ");
 
         Scanner scanner = new Scanner(System.in);
+        String userName = scanner.next();
+
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(description);
 
         for (int i = 0; i < ROUNDS; i++) {
             String question = roundsData[i][0];
@@ -33,16 +34,6 @@ public final class Engine {
 
         System.out.println("Congratulations, " + userName + "!");
         scanner.close();
-    }
-
-    private static void greet() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? ");
-
-        Scanner scanner = new Scanner(System.in);
-        userName = scanner.next();
-
-        System.out.println("Hello, " + userName + "!");
     }
 
     public static Integer getMaxRoundsCount() {
